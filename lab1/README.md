@@ -32,6 +32,7 @@ When variables reside inside a shared cache line, parallel modification forces a
 ## 6. How to Reproduce
 ```bash
 # Clone the repository and navigate to Lab 1
+sudo sysctl -w kernel.perf_event_paranoid=-1
 g++ -O2 false_sharing_bench.cpp -o contended_test
 g++ -O2 -DALIGN_CACHE false_sharing_bench.cpp -o aligned_test
 chmod +x run_experiments.sh
