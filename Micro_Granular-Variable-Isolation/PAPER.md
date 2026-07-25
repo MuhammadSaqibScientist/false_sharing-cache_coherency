@@ -58,18 +58,10 @@ Telemetry collected across variable alignment intervals reveals a steep performa
 | **96** | 440 | 162,428 | 2,358,863,354 | Hardware Isolated |
 | **128** | 429 | 138,850 | 2,014,486,686 | Hardware Isolated |
 
-```
-                       THE PERFORMANCE CLIFF
-   4000 +--*-------------------------------------------------+
-        |   \  (Contention Zone: 0B - 48B)                   |
-   3000 |----+--*------*-------*-------*                     |
-Time    |                               \                    |
- (ms)   |                                *                   |
-   1000 |                                 \  (Isolated)      |
-      0 +----------------------------------*----*----*-------+
-        0      8      16      32      48   64   96   128
-                       Alignment Spacing (Bytes)
-```
+![The Performance Cliff: Execution Time vs. Variable Alignment Offset](cache_performance_cliff.png)
+*Figure 1: Execution time (ms) as a function of variable padding offset. A sharp microarchitectural cliff occurs at the 64-byte L1 cache-line boundary.*
+
+
 
 ### 3.2 Hardware Interconnect Analysis (`perf c2c`)
 Profiling the unpadded (0-byte) configuration via `perf c2c` captured **47,990 hardware trace records**:
