@@ -1,0 +1,89 @@
+=================================================
+            Trace Event Information              
+=================================================
+  Total records                     :      47990
+  Locked Load/Store Operations      :      23995
+  Load Operations                   :      24050
+  Loads - uncacheable               :          0
+  Loads - IO                        :          0
+  Loads - Miss                      :          0
+  Loads - no mapping                :          0
+  Load Fill Buffer Hit              :         28
+  Load L1D hit                      :       5451
+  Load L2D hit                      :          4
+  Load LLC hit                      :      18544
+  Load Local HITM                   :      18528
+  Load Remote HITM                  :          0
+  Load Remote HIT                   :          0
+  Load Local DRAM                   :         23
+  Load Remote DRAM                  :          0
+  Load MESI State Exclusive         :         23
+  Load MESI State Shared            :          0
+  Load LLC Misses                   :         23
+  Load access blocked by data       :          0
+  Load access blocked by address    :          0
+  Load HIT Local Peer               :          0
+  Load HIT Remote Peer              :          0
+  LLC Misses to Local DRAM          :      100.0%
+  LLC Misses to Remote DRAM         :        0.0%
+  LLC Misses to Remote cache (HIT)  :        0.0%
+  LLC Misses to Remote cache (HITM) :        0.0%
+  Store Operations                  :      23940
+  Store - uncacheable               :          0
+  Store - no mapping                :          2
+  Store L1D Hit                     :      23465
+  Store L1D Miss                    :        473
+  Store No available memory level   :          0
+  No Page Map Rejects               :        517
+  Unable to parse data source       :          0
+
+=================================================
+    Global Shared Cache Line Event Information   
+=================================================
+  Total Shared Cache Lines          :          1
+  Load HITs on shared lines         :      23992
+  Fill Buffer Hits on shared lines  :          0
+  L1D hits on shared lines          :       5443
+  L2D hits on shared lines          :          0
+  LLC hits on shared lines          :      18529
+  Load hits on peer cache or nodes  :          0
+  Locked Access on shared lines     :      23992
+  Blocked Access on shared lines    :          0
+  Store HITs on shared lines        :      22224
+  Store L1D hits on shared lines    :      22224
+  Store No available memory level   :          0
+  Total Merged records              :      40752
+
+=================================================
+                 c2c details                     
+=================================================
+  Events                            : cpu/mem-loads,ldlat=30/P
+                                    : cpu/mem-stores/P
+  Cachelines sort on                : Total HITMs
+  Cacheline data grouping           : offset,iaddr
+
+=================================================
+           Shared Data Cache Line Table          
+=================================================
+#
+#        ----------- Cacheline ----------      Tot  ------- Load Hitm -------    Total    Total    Total  --------- Stores --------  ----- Core Load Hit -----  - LLC Load Hit --  - RMT Load Hit --  --- Load Dram ----
+# Index             Address  Node  PA cnt     Hitm    Total  LclHitm  RmtHitm  records    Loads   Stores    L1Hit   L1Miss      N/A       FB       L1       L2    LclHit  LclHitm    RmtHit  RmtHitm       Lcl       Rmt
+# .....  ..................  ....  ......  .......  .......  .......  .......  .......  .......  .......  .......  .......  .......  .......  .......  .......  ........  .......  ........  .......  ........  ........
+#
+      0      0x7ffdcebc2240     0   27783  100.00%    18528    18528        0    46216    23992    22224    22224        0        0        0     5443        0         1    18528         0        0        20         0
+
+=================================================
+      Shared Cache Line Distribution Pareto      
+=================================================
+#
+#        ----- HITM -----  ------- Store Refs ------  --------- Data address ---------                      ---------- cycles ----------    Total       cpu                                               Shared                                      
+#   Num  RmtHitm  LclHitm   L1 Hit  L1 Miss      N/A              Offset  Node  PA cnt        Code address  rmt hitm  lcl hitm      load  records       cnt                          Symbol               Object                     Source:Line  Node
+# .....  .......  .......  .......  .......  .......  ..................  ....  ......  ..................  ........  ........  ........  .......  ........  ..............................  ...................  ..............................  ....
+#
+  ----------------------------------------------------------------------
+      0        0    18528    22224        0        0      0x7ffdcebc2240
+  ----------------------------------------------------------------------
+           0.00%   25.37%   25.04%    0.00%    0.00%                 0x0     0       1      0x5629dc214650         0      2079       544    11716         2  [.] increment_loop(std::atomic  cache_boundary_test  increment_loop(std::atomic<uns   0
+           0.00%   24.95%   26.05%    0.00%    0.00%                 0x0     0       1      0x5629dc214655         0      2065       556    11792         2  [.] increment_loop(std::atomic  cache_boundary_test  increment_loop(std::atomic<uns   0
+           0.00%   25.14%   24.81%    0.00%    0.00%                 0x8     0       1      0x5629dc214650         0      2058       500    11419         2  [.] increment_loop(std::atomic  cache_boundary_test  increment_loop(std::atomic<uns   0
+           0.00%   24.55%   24.10%    0.00%    0.00%                 0x8     0       1      0x5629dc214655         0      2057       547    11289         2  [.] increment_loop(std::atomic  cache_boundary_test  increment_loop(std::atomic<uns   0
